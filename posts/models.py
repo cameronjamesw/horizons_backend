@@ -14,7 +14,7 @@ class Post(models.Model):
         upload_to='images/', default='../default_image_phixuu',
         blank=True
     )
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='post')
 
     class Meta:
         ordering = ['-created_at']

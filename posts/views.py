@@ -4,6 +4,7 @@ from rest_framework import status, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Post
+from category.models import Category
 from .serialziers import PostSerializer
 from horizons_backend.permissions import IsOwnerOrReadOnly
 
@@ -18,7 +19,7 @@ class PostList(APIView):
     def get(self, request):
         posts = Post.objects.all()
         serializer = PostSerializer(
-            posts, many=True, context={"request": request}
+            posts, many=True, context={"request": request},
         )
         return Response(serializer.data)
 
@@ -45,6 +46,7 @@ class PostDetail(APIView):
             return post
         except Post.DoesNotExist:
             raise Http404
+
 
     def get(self, request, pk):
         post = self.get_object(pk)
