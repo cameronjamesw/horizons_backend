@@ -11,4 +11,4 @@ class Category(models.Model):
         ordering = ['post_count']
 
     def __str__(self):
-        return f'{self.name}, with {self.post_count} posts'
+        return f'{self.name}'
