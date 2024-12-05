@@ -3,4 +3,4 @@ from .models import Category
 
 # Register your models here.
 
-admin.site.Register(Category)
+admin.site.register(Category)

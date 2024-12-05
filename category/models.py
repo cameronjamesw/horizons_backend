@@ -4,12 +4,11 @@ from django.db import models
 
 class Category(models.Model):
     name = models.CharField(max_length=20)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
     post_count = models.IntegerField(default=0, editable=False)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ['post_count']
 
     def __str__(self):
-        return f'{self.name}, contains {self.post_count} posts'
+        return f'{self.name}, with {self.post_count} posts'
