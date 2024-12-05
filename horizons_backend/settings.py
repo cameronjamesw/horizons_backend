@@ -37,7 +37,11 @@ SECRET_KEY = 'django-insecure-^claiiybuw9z(j%k&mw02#2$d-6$9ueu88x%s*f6nja6y)rlhw
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '8000-cameronjame-horizonsbac-q1u7s9tdg91.ws.codeinstitute-ide.net'
+    '8000-cameronjame-horizonsbac-q1u7s9tdg91.ws.codeinstitute-ide.net',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-cameronjame-horizonsbac-q1u7s9tdg91.ws.codeinstitute-ide.net',
 ]
 
 
