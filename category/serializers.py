@@ -12,6 +12,5 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'name',
-            'post_count',
             'created_at',
         ]
