@@ -1,17 +1,17 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import generics
+from horizons_backend.permissions import IsAdminUserOrReadOnly
 from .models import Category
 from .serializers import CategorySerializer
 
 # Create your views here.
 
-class CategoryList(APIView):
+class CategoryList(generics.ListCreateAPIView):
+    permission_classes = [IsAdminUserOrReadOnly]
     serializer_class = CategorySerializer
+    queryset = Category.objects.all()
 
-    def get(self, request):
-        categories = Category.objects.all()
-        serializer = CategorySerializer(
-            categories, many=True, context={"request": request}
-        )
-        return Response(serializer.data)
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
