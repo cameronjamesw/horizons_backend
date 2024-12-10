@@ -4,6 +4,8 @@ from .models import Category
 
 class CategorySerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
+    posts_count = serializers.ReadOnlyField()
+
     class Meta:
         model = Category
         fields = [
@@ -11,6 +13,7 @@ class CategorySerializer(serializers.ModelSerializer):
             'owner',
             'name',
             'created_at',
+            'posts_count',
         ]
 
     def create(self, validated_data):

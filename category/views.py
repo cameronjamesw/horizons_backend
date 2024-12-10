@@ -1,7 +1,5 @@
-from django.shortcuts import render
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import generics, permissions
+from django.db.models import Count
+from rest_framework import generics, permissions, filters
 from horizons_backend.permissions import IsAdminUserOrReadOnly
 from .models import Category
 from .serializers import CategorySerializer
@@ -11,7 +9,16 @@ from .serializers import CategorySerializer
 class CategoryList(generics.ListCreateAPIView):
     permission_classes = [IsAdminUserOrReadOnly]
     serializer_class = CategorySerializer
-    queryset = Category.objects.all()
+    queryset = Category.objects.annotate(
+        posts_count = Count('post')
+    ).order_by('-created_at')
+
+    filter_backends = [
+        filters.OrderingFilter
+    ]
+    ordering_fields = [
+        'posts_count',
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -19,4 +26,6 @@ class CategoryList(generics.ListCreateAPIView):
 class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAdminUser]
     serializer_class = CategorySerializer
-    queryset = Category.objects.all()
+    queryset = Category.objects.annotate(
+        posts_count = Count('post')
+    ).order_by('-created_at')
