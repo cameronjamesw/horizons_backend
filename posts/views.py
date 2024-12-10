@@ -37,6 +37,9 @@ class PostList(generics.ListCreateAPIView):
 
         # Posts by Category
         'category',
+
+        # User Favourite Posts
+        'favourites__owner__profile',
     ]
 
     ordering_fields = [
