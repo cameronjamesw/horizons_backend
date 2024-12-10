@@ -66,6 +66,7 @@ ALLOWED_HOSTS = [
     '8000-cameronjame-horizonsbac-q1u7s9tdg91.ws.codeinstitute-ide.net',
     'localhost',
     'horizons-backend.herokuapp.com',
+    'horizons-backend-41be3d431d55.herokuapp.com/'
 ]
 
 CSRF_TRUSTED_ORIGINS = [
