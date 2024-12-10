@@ -14,10 +14,16 @@ class CategoryList(generics.ListCreateAPIView):
     ).order_by('-created_at')
 
     filter_backends = [
-        filters.OrderingFilter
+        filters.OrderingFilter,
+        filters.SearchFilter
     ]
+
     ordering_fields = [
         'posts_count',
+    ]
+
+    search_fields = [
+        'name'
     ]
 
     def perform_create(self, serializer):
