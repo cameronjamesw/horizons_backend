@@ -8,6 +8,9 @@ class ProfileSerializer(serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField()
     is_admin = serializers.SerializerMethodField()
     following_id = serializers.SerializerMethodField()
+    posts_count = serializers.ReadOnlyField()
+    followers_count = serializers.ReadOnlyField()
+    following_count = serializers.ReadOnlyField()
 
     def get_is_admin(self, obj):
         superusers = User.objects.filter(is_superuser=True)
@@ -41,4 +44,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             'is_owner',
             'is_admin',
             'following_id',
+            'posts_count',
+            'followers_count',
+            'following_count',
         ]
