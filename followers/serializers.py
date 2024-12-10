@@ -11,7 +11,7 @@ class FollowerSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'owner',
-            'following',
+            'followed',
             'followed_name',
             'created_at',
         ]
