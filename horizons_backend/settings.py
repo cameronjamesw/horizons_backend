@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'category',
     'comments',
     'favourites',
+    'followers',
     'likes',
     'posts',
     'profiles',
