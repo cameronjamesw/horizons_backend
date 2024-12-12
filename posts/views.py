@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from .models import Post
 from category.models import Category
 from .serialziers import PostSerializer
-from horizons_backend.permissions import IsOwnerOrReadOnly
+from horizons_backend.permissions import IsOwnerOrReadOnly, IsOwnerOrAdmin
 
 
 class PostList(generics.ListCreateAPIView):
@@ -72,7 +72,7 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView):
     - Only the owner of the post can edit or delete it.
     """
     serializer_class = PostSerializer
-    permission_classes = [IsOwnerOrReadOnly]
+    permission_classes = [IsOwnerOrAdmin]
     queryset = Post.objects.annotate(
         likes_count=Count('likes', distinct=True),
         comments_count=Count('comment', distinct=True)

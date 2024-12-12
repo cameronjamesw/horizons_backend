@@ -10,6 +10,8 @@ Classes:
                        write access to the owner of the object.
     IsAdminUserOrReadOnly: Defines admin only permissions to super users,
                        otherwise read on
+    IsOwnerOrAdmin: Allows both an owner and an allow to edit and delete
+    a post or comment.
 """
 
 
@@ -27,3 +29,10 @@ class IsAdminUserOrReadOnly(IsAdminUser):
             IsAdminUserOrReadOnly,
             self).has_permission(request, view)
         return request.method in SAFE_METHODS or is_admin
+
+
+class IsOwnerOrAdmin(permissions.BasePermission):
+    def has_object_permission(self, request, view, obj):
+        if request.method in permissions.SAFE_METHODS:
+            return True
+        return obj.owner == request.user or request.user.is_staff
