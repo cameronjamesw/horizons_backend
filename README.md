@@ -59,6 +59,13 @@ Within the Favourite Serializer, it is ensured that a user will not be able to '
 
 ### Post
 
+The post model represents an instance within the database whereby authenticated users can create their own post. When creating a post instance, the instance will be tied to the User model, this being accessed through the `owner` field which contains a ForeignKey to the User Model.
+
+Furthermore, users have the option to select a `category`. Upon selecting the field, a dropdown menu of the pre--exsiting categories will be listed to the user - they can choose to add their post to a category if they want to; however, this is not required. This is because the default value within the ForeignKey field is set to `Null`, so a post an exist without being tied to a category. In addiion to this, upon a category being deleted, any posts that are tied to that category will not be deleted, and instead have their value set to `Null`. This is because of the `on-delete=Models.SET_NULL` attribute of the ForeignKey field. If posts got deleted upon the deletion of a category this would provide poor UX. 
+
+Users are able to add and edit fields such as `title`, `content`, `images` and `category`.
+Only the post owners will be able to edit and delete their posts - `admins` will be permitted to delete posts is they feel it is necessary in the way of safeguarding.
+
 ### Comment
 
 ### Like
