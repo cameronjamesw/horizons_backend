@@ -56,6 +56,29 @@ These tests will be group by endpoint to viewing more manageable.
 | 16 | /categories/id | PUT | TestUser3 | Navigate to categories/id while unauthenticated | Status 403 Code - Forbidden | Status 403 Code, Forbidden - Authenticated credentials were not provided | Yes |
 | 17 | /categories/id | DELETE | TestUser1 | Delete category | Successfully deleted categpry | Status 204 Code, No content - Category successfully deleted | Yes |
 
+**Post Testing**
+
+| Test ID | Endpoint | HTTP Method | User | Test Case | Expected Outcome | Actual Outcome | Pass |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 18 | /posts/ | GET | TestUser1 | Navigate to /posts/ as admin | Display list of posts | Displayed list of posts, status 200 code | Pass |
+| 19 | /posts/ | GET | TestUser2 | Navigate to /posts/ as user | Display list of posts | Displayed list of posts, status 200 code | Pass |
+| 20 | /posts/ | GET | TestUser3 | Navigate to /posts/ while unauthenticated | Display list of posts | Displayed list of posts, status 200 code | Pass |
+| 21 | /posts/ | POST | TestUser1 | Create new post as admin | Successfully create new post | Post created, status 201 code - created | Pass |
+| 22 | /posts/ | POST | TestUser2 | Create new post as user | Successfully create new post | Post created, status 201 code - created | Pass |
+| 23 | /posts/ | POST | TestUser3 | Create a new post while unauthenticated | Not permitted, 403 error | Status code 403 Forbidden - Authentication credentials were not provided | Yes |
+| 24 | /posts/id | GET | TestUser1 | Navigate to /posts/id as admin | Display specific post by ID | Displayed specific post by ID, status 200 code | Pass |
+| 25 | /posts/id | GET | TestUser2 | Navigate to /posts/id as user | Display specific post by ID | Displayed specific post by ID, status 200 code | Pass |
+| 26 | /posts/id | GET | TestUser3 | Navigate to /posts/id while unauthenticated | Display specific post by ID | Displayed specific post by ID, status 200 code | Pass |
+| 27 | /posts/id | PUT | TestUser1 | Update specific post with new data as admin | Post updated successfully, status code 200 | Successfully updated post, status 200 code | Pass |
+| 28 | /posts/id | PUT | TestUser2 | Update specific post with new data as user | Post updated successfully, status code 200 | Successfully updated post, status 200 code | Pass |
+| 29 | /posts/id | PUT | TestUser3 | Update specific post with new data while unauthenticated | Error, status 403 code | Status 403 code, forbidden - Authentication credentials were not provided | Pass |
+| 30 | /posts/id | PUT | TestUser1 | Update TestUser2's post as admin | Post updated successfully, status code 200 | Successfully updated post, status 200 code | Pass |
+| 31 | /posts/id | PUT | TestUser2 | Update another user's post | Status 403 Code - Forbidden | Status 403 Code, Forbidden - You do not have permission to perform this action | Yes |
+| 32 | /posts/id | DELETE | TestUser1 | Delete post | Post deleted successfully, status code 204 | Successfully deleted post, status 204 code | Pass |
+| 33 | /posts/id | DELETE | TestUser1 | Delete TestUser2's post | Post deleted successfully, status code 204 | Successfully deleted post, status 204 code | Pass |
+| 34 | /posts/id | DELETE | TestUser2 | Delete own post | Post deleted successfully, status code 204 | Successfully deleted post, status 204 code | Pass |
+| 35 | /posts/id | DELETE | TestUser2 | Delete another user's post | Status 403 Code - Forbidden | Status 403 Code, Forbidden - You do not have permission to perform this action | Yes |
+| 35 | /posts/id | DELETE | TestUser3 | Delete another user's post while unauthenticatedd | Status 403 Code - Forbidden | Status 403 Code, Forbidden - Authentication credentials were not provided | Yes |
 
 
 ### Python Validation
