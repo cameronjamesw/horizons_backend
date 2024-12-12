@@ -28,7 +28,13 @@ A series of `TestUsers` have been created in the view of testing, and these acco
 `TestUser2` is a standard user who will be authenticated throughout the testing process. They should be able to create and edit their own posts, like, comment and favourite post too. But they are denied admin priveleges, so they will not be able to update or delete another user's post or comment, and they will not be able to access the category detail view, as well as create a category.
 `TestUser3` will be an unauthenticated user, so they will be able to view the data fetched with the API, but they will not be able to mutilate it in anyway.
 
-These tests will be group by endpoint to viewing more managable.
+These tests will be group by endpoint to viewing more manageable.
+
+**Profile Testing**
+
+| Test ID | Endpoint | Test Case | Expected Outcome | Actual Putcome | Pass |
+| --- | --- | --- | --- | --- | --- |
+| Test |
 
 ### Python Validation
 
