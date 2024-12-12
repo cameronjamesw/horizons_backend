@@ -55,7 +55,7 @@ When creating and editing a category, admin users can only alter the `name` fiel
 
 The favourite model represents an instance whereby the user can `favourite` a post, and as such the favourite model is tied to the post model in a one-to-many relationship. Users can favourite a post, and the have this post appear in their favourites list on their profile - a component which will only be visible to themselves.
 
-Within the Favourite Serializer, it is ensured that a user will not be able to 'double-favourite' a post - whereby leading to poor UX. This is done through using the `unique_together` field within the favourites/models.py. This insures that the `owner` and `post` feilds are unique together within the database and in turn prevents any duplicates.
+Within the **FavouriteSerializer**, it is ensured that a user will not be able to 'double-favourite' a post - whereby leading to poor UX. This is done through using the `unique_together` field within the favourites/models.py. This insures that the `owner` and `post` feilds are unique together within the database and in turn prevents any duplicates.
 
 ### Post
 
@@ -69,6 +69,8 @@ Only the post owners will be able to edit and delete their posts - `admins` will
 ### Comment
 
 ### Like
+
+The likes model represents a user liking a specific post for showing their interest. Each like links a user to a Posts, recording when the likes was created. The model enforces that a user can only likes a post once, ensuring no duplicates. The associated **likesSerializer** is responsible for handling the serialization of likes data, including the user and event details. It also includes validation logic to raise an error if a user attempts to likes the same event more than once. This structure supports a clean and efficient way to manage user likes within the application.
 
 ### Follower
 
