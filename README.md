@@ -105,6 +105,15 @@ Here is a table containing the API endpoints
 | /favourites/int:pk/ | Notes | GET | READ | DETAIL | N/A |
 | /favourites/int:pk/ | Notes | DELETE | DELETE | DETAIL | N/A |
 
+### Likes Endpoints
+
+| **URL** | **Notes** | **HTTP Method** | **CRUD Operation** | **View Type** | **POST/PUT Data Format** |
+|---|---|---|---|---|---|
+| /likes/ | Notes | GET | READ | LIST | N/A |
+| /likes/ | Notes | POST | CREATE | LIST | {<br>    "owner":"string",<br>    "post":"id",<br>    "created_at":"datetimefield"<br>} |
+| /likes/int:pk/ | Notes | GET | READ | DETAIL | N/A |
+| /likes/int:pk/ | Notes | DELETE | DELETE | DETAIL | N/A |
+
 ## Frameworks, Libraries & Dependencies
 
 ## Testing
