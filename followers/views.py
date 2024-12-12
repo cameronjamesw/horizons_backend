@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics, permissions
 from .models import Follower
 from .serializers import FollowerSerializer
-from horizons_backend.permissions import IsOwnerOrReadOnlys
+from horizons_backend.permissions import IsOwnerOrReadOnly
 
 
 class FollowerList(generics.ListCreateAPIView):
