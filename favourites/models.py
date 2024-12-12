@@ -4,6 +4,7 @@ from posts.models import Post
 
 # Create your models here.
 
+
 class Favourite(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(

@@ -2,6 +2,7 @@ from rest_framework import serializers
 from django.db import IntegrityError
 from .models import Favourite
 
+
 class FavouriteSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
 
