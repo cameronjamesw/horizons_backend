@@ -68,6 +68,14 @@ Only the post owners will be able to edit and delete their posts - `admins` will
 
 ### Comment
 
+The Comment model is designed to manage user-generated comments on specific posts. Each comment is associated with an `owner` - connected through a ForeignKey to the `User Model` - and a post, again connected through a ForeignKey. 
+
+When creating and editing comments users will be able to edit the `content` field only. The `created_at` and `updated_at` fields will also be returned respectively. The model ensures that comments are displayed in reverse chronological order by default, showing the most recent ones first.
+
+The associated **CommentSerializer** handles the serialization of comment data, including details about the user who made the comment, their profile picture, and the timestamps formatted in a human-readable manner. The **CommentDetailSerializer** extends this by providing additional details, such as the ID of the associated Posts event. This setup enables efficient management and display of comments within the application, fostering interaction and discussion around Posts events.
+
+`Admin users` will also be permitted to delete comments in the view of safeguarding.
+
 ### Like
 
 The likes model represents a user liking a specific post for showing their interest. Each like links a user to a Posts, recording when the likes was created. The model enforces that a user can only likes a post once, ensuring no duplicates. The associated **likesSerializer** is responsible for handling the serialization of likes data, including the user and event details. It also includes validation logic to raise an error if a user attempts to likes the same event more than once. This structure supports a clean and efficient way to manage user likes within the application.
