@@ -2,6 +2,16 @@ from django.contrib.auth.models import User
 from rest_framework import permissions
 from rest_framework.permissions import IsAdminUser, SAFE_METHODS
 
+"""
+Custom permission classes for API access control.
+
+Classes:
+    IsOwnerOrReadOnly: Grants read-only access for any user, but restricts
+                       write access to the owner of the object.
+    IsAdminUserOrReadOnly: Defines admin only permissions to super users,
+                       otherwise read on
+"""
+
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):

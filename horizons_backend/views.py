@@ -5,6 +5,18 @@ from .settings import (
     JWT_AUTH_SECURE,
 )
 
+"""
+API views for root route and logout functionality.
+
+Functions:
+    root_route(request): Handles the root API route and returns a welcome
+    message.
+
+    logout_route(request): Handles user logout by clearing JWT authentication
+                           and refresh cookies, ensuring secure logout
+                           from the API.
+"""
+
 
 @api_view()
 def root_route(request):
