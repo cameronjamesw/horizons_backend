@@ -114,6 +114,15 @@ Here is a table containing the API endpoints
 | /likes/int:pk/ | Notes | GET | READ | DETAIL | N/A |
 | /likes/int:pk/ | Notes | DELETE | DELETE | DETAIL | N/A |
 
+### Followers Endpoints
+
+| **URL** | **Notes** | **HTTP Method** | **CRUD Operation** | **View Type** | **POST/PUT Data Format** |
+|---|---|---|---|---|---|
+| /followers/ | Notes | GET | READ | LIST | N/A |
+| /followers/ | Notes | POST | CREATE | LIST | {<br>    "owner":"string",<br>    "followed":"id",<br>    "created_at":"datetimefield"<br>} |
+| /followers/int:pk/ | Notes | GET | READ | DETAIL | N/A |
+| /followers/int:pk/ | Notes | DELETE | DELETE | DETAIL | N/A |
+
 ## Frameworks, Libraries & Dependencies
 
 ## Testing
