@@ -56,7 +56,15 @@ Here is a table containing the API endpoints
 |---|---|---|---|---|---|
 | /dj-rest-auth/registration/ | Notes | POST | N/A | N/A | {<br>    "username":"string",<br>    "password":"string",<br>    "password2":"string"<br>} |
 | /dj-rest-auth/login/ | Notes | POST | N/A | N/A | {<br>    "username":"string",<br>    "password":"string",<br>    "password2":"string"<br>} |
-| /dj-rest-auth/logout/ | Notes | POST | N/A | N/A | |
+| /dj-rest-auth/logout/ | Notes | POST | N/A | N/A | N/A |
+
+### Profile Endpoints
+
+| **URL** | **Notes** | **HTTP Method** | **CRUD Operation** | **View Type** | **POST/PUT Data Format** |
+|---|---|---|---|---|---|
+| /profiles/ | Notes | GET | READ | LIST | N/A |
+| /profiles/int:pk/ | Notes | GET | READ | DETAIL | N/A |
+| /profiles/int:pk/ | Notes | PUT | UPDATE | DETAIL | {<br>    "owner":"string",<br>    "name":"string",<br>    "island_name":"string",<br> "friend_code":"integer",<br> "bio":"string",<br> "image":"string", <br> "updated_at":"datetimefield"} |
 
 ## Frameworks, Libraries & Dependencies
 
