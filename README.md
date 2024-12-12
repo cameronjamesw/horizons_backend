@@ -86,6 +86,16 @@ Here is a table containing the API endpoints
 | /categories/int:pk/ | Notes | PUT | UPDATE | DETAIL | {<br>    "owner":"string",<br>    "name":"string",<br>    "updated_at":"datetimefield"<br>} |
 | /categories/int:pk/ | Notes | DELETE | DELETE | DETAIL | N/A |
 
+### Comments Endpoints
+
+| **URL** | **Notes** | **HTTP Method** | **CRUD Operation** | **View Type** | **POST/PUT Data Format** |
+|---|---|---|---|---|---|
+| /comments/ | Notes | GET | READ | LIST | N/A |
+| /comments/ | Notes | POST | CREATE | LIST | {<br>    "owner":"string",<br>    "post":"id",<br> "content":"string",<br>    "created_at":"datetimefield"<br>} |
+| /comments/int:pk/ | Notes | GET | READ | DETAIL | N/A |
+| /comments/int:pk/ | Notes | PUT | UPDATE | DETAIL | {<br>    "owner":"string",<br>    "post":"id",<br> "content":"string",<br>    "updated_at":"datetimefield"<br>} |
+| /comments/int:pk/ | Notes | DELETE | DELETE | DETAIL | N/A |
+
 ## Frameworks, Libraries & Dependencies
 
 ## Testing
