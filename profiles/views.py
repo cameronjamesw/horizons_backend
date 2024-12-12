@@ -1,20 +1,21 @@
 from django.db.models import Count
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics, filters
+from horizons_backend.permissions import IsOwnerOrReadOnly
 from .models import Profile
 from .serializers import ProfileSerializer
-from horizons_backend.permissions import IsOwnerOrReadOnly
 
 # Create your views here.
+
 
 class ProfileList(generics.ListAPIView):
     serializer_class = ProfileSerializer
 
     queryset = Profile.objects.annotate(
-        posts_count = Count('owner__post', distinct=True),
-        followers_count = Count('owner__followed', distinct=True),
-        following_count = Count('owner__following', distinct=True),
-        favourites_count = Count('owner__favourite', distinct=True),
+        posts_count=Count('owner__post', distinct=True),
+        followers_count=Count('owner__followed', distinct=True),
+        following_count=Count('owner__following', distinct=True),
+        favourites_count=Count('owner__favourite', distinct=True),
     ).order_by('-created_at')
 
     filter_backends = [
@@ -40,8 +41,8 @@ class ProfileDetail(generics.RetrieveUpdateAPIView):
     serializer_class = ProfileSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Profile.objects.annotate(
-        posts_count = Count('owner__post', distinct=True),
-        followers_count = Count('owner__followed', distinct=True),
-        following_count = Count('owner__following', distinct=True),
-        favourites_count = Count('owner__favourite', distinct=True),
+        posts_count=Count('owner__post', distinct=True),
+        followers_count=Count('owner__followed', distinct=True),
+        following_count=Count('owner__following', distinct=True),
+        favourites_count=Count('owner__favourite', distinct=True),
     ).order_by('-created_at')

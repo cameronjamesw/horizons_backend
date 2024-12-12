@@ -1,7 +1,8 @@
-from rest_framework import serializers
 from django.contrib.auth.models import User
+from rest_framework import serializers
 from followers.models import Follower
 from .models import Profile
+
 
 class ProfileSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source="owner.username")
