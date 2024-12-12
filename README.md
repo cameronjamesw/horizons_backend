@@ -53,6 +53,10 @@ When creating and editing a category, admin users can only alter the `name` fiel
 
 #### Favourite
 
+The favourite model represents an instance whereby the user can `favourite` a post, and as such the favourite model is tied to the post model in a one-to-many relationship. Users can favourite a post, and the have this post appear in their favourites list on their profile - a component which will only be visible to themselves.
+
+Within the Favourite Serializer, it is ensured that a user will not be able to 'double-favourite' a post - whereby leading to poor UX. This is done through using the `unique_together` field within the favourites/models.py. This insures that the `owner` and `post` feilds are unique together within the database and in turn prevents any duplicates.
+
 ### Post
 
 ### Comment
