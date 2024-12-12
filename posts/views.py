@@ -7,10 +7,13 @@ from category.models import Category
 from .serialziers import PostSerializer
 from horizons_backend.permissions import IsOwnerOrReadOnly
 
-# Create your views here.
-
 
 class PostList(generics.ListCreateAPIView):
+    """
+    API view to list all posts or create a new post.
+    - List all posts, with filtering, searching, and ordering options.
+    - Authenticated users can create posts.
+    """
     serializer_class = PostSerializer
     permission_classes = [
         permissions.IsAuthenticatedOrReadOnly
@@ -44,22 +47,30 @@ class PostList(generics.ListCreateAPIView):
     ]
 
     ordering_fields = [
-        'likes_count',
-        'comments_count',
-        'likes__created_at',
+        'likes_count',  # Order ny number of likes
+        'comments_count',  # Order by number of comments
+        'likes__created_at',  # Order by creation date of likes
     ]
 
     search_fields = [
-        'owner__username',
-        'title',
-        'category__name',
+        'owner__username',  # Search by username of the owner
+        'title',  # Search by name of the tit;e
+        'category__name',  # Search by category
     ]
 
     def perform_create(self, serializer):
+        """
+        Override perform_create to associate the post
+        with the logged-in user.
+        """
         serializer.save(owner=self.request.user)
 
 
 class PostDetail(generics.RetrieveUpdateDestroyAPIView):
+    """
+    API view to retrieve, update, or delete a single post.
+    - Only the owner of the post can edit or delete it.
+    """
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Post.objects.annotate(

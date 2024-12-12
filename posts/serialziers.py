@@ -4,6 +4,11 @@ from likes.models import Like
 
 
 class PostSerializer(serializers.ModelSerializer):
+    """
+    Serializer for the Post model.
+    Converts Post instances to and from JSON for API interactions,
+    with validations and computed fields for user-specific details.
+    """
 
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
@@ -14,6 +19,11 @@ class PostSerializer(serializers.ModelSerializer):
     likes_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
+        """
+        Validates the uploaded image:
+        - Ensures it is less than 2MB.
+        - Confirms that height and width are within 4096px.
+        """
         if value.size > 1024 * 1024 * 2:
             raise serializers.ValidationError(
                 'Image size larger than 2Mb'
@@ -29,10 +39,17 @@ class PostSerializer(serializers.ModelSerializer):
         return value
 
     def get_is_owner(self, obj):
+        """
+        Checks if the authenticated user is the owner of the post.
+        """
         request = self.context['request']
         return request.user == obj.owner
 
     def get_like_id(self, obj):
+        """
+        Retrieves the ID of the Like object if the authenticated user
+        has liked the post; returns None otherwise.
+        """
         user = self.context['request'].user
         if user.is_authenticated:
             like = Like.objects.filter(

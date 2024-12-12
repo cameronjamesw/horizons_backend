@@ -3,6 +3,28 @@ from django.contrib.auth.models import User
 from category.models import Category
 
 # Create your models here.
+"""
+    Post model representing an event created by a user.
+
+    Attributes:
+        owner (ForeignKey): The user who created the post.
+        title (CharField): The title of the post
+        content (Textfield): The content of the post
+        created_at (DateTimeField): Timestamp when the post was created.
+        updated_at (DateTimeField): Timestamp when the post was last updated.
+        image (ImageField): Optional image for the event. Uploaded to
+                            'images/' by default, with a fallback to a
+                            default image ('../default_image_phixuu').
+        category (ForeignKey): The category the post falls under.
+
+    Meta:
+        - Posts are ordered by creation time in descending order
+        (`-created_at`).
+
+    Methods:
+        __str__: Returns a string representation of the post, displaying its
+                 ID and title.
+    """
 
 
 class Post(models.Model):
