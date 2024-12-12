@@ -6,11 +6,12 @@ from .serializers import CategorySerializer
 
 # Create your views here.
 
+
 class CategoryList(generics.ListCreateAPIView):
     permission_classes = [IsAdminUserOrReadOnly]
     serializer_class = CategorySerializer
     queryset = Category.objects.annotate(
-        posts_count = Count('post')
+        posts_count=Count('post')
     ).order_by('-created_at')
 
     filter_backends = [
@@ -29,9 +30,10 @@ class CategoryList(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
+
 class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [permissions.IsAdminUser]
     serializer_class = CategorySerializer
     queryset = Category.objects.annotate(
-        posts_count = Count('post')
+        posts_count=Count('post')
     ).order_by('-created_at')
