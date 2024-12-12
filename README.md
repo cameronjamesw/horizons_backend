@@ -50,9 +50,13 @@
 
 Here is a table containing the API endpoints
 
+### Django AllAuth Endpoints
+
 | **URL** | **Notes** | **HTTP Method** | **CRUD Operation** | **View Type** | **POST/PUT Data Format** |
-|---|---|---:|---|---:|---|
-| **Django AllAuth Endpoints** |
+|---|---|---|---|---|---|
+| /dj-rest-auth/registration/ | Notes | POST | N/A | N/A | {<br>    "username":"string",<br>    "password":"string",<br>    "password2":"string"<br>} |
+| /dj-rest-auth/login/ | Notes | POST | N/A | N/A | {<br>    "username":"string",<br>    "password":"string",<br>    "password2":"string"<br>} |
+| /dj-rest-auth/logout/ | Notes | POST | N/A | N/A | |
 
 ## Frameworks, Libraries & Dependencies
 
