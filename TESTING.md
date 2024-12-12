@@ -78,8 +78,31 @@ These tests will be group by endpoint to viewing more manageable.
 | 33 | /posts/id | DELETE | TestUser1 | Delete TestUser2's post | Post deleted successfully, status code 204 | Successfully deleted post, status 204 code | Pass |
 | 34 | /posts/id | DELETE | TestUser2 | Delete own post | Post deleted successfully, status code 204 | Successfully deleted post, status 204 code | Pass |
 | 35 | /posts/id | DELETE | TestUser2 | Delete another user's post | Status 403 Code - Forbidden | Status 403 Code, Forbidden - You do not have permission to perform this action | Yes |
-| 35 | /posts/id | DELETE | TestUser3 | Delete another user's post while unauthenticatedd | Status 403 Code - Forbidden | Status 403 Code, Forbidden - Authentication credentials were not provided | Yes |
+| 36 | /posts/id | DELETE | TestUser3 | Delete another user's post while unauthenticatedd | Status 403 Code - Forbidden | Status 403 Code, Forbidden - Authentication credentials were not provided | Yes |
 
+**Comments Testing**
+
+| Test ID | Endpoint | HTTP Method | User | Test Case | Expected Outcome | Actual Outcome | Pass |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 37 | /comments/ | GET | TestUser1 | Navigate to /comments/ as admin | Display list of comments | Displayed list of comments, status 200 code | Pass |
+| 38 | /comments/ | GET | TestUser2 | Navigate to /comments/ as user | Display list of comments | Displayed list of comments, status 200 code | Pass |
+| 39 | /comments/ | GET | TestUser3 | Navigate to /comments/ while unauthenticated | Display list of comments | Displayed list of comments, status 200 code | Pass |
+| 40 | /comments/ | POST | TestUser1 | Create new comment as admin | Successfully create new comment | Post created, status 201 code - created | Pass |
+| 41 | /comments/ | POST | TestUser2 | Create new comment as user | Successfully create new comment | Post created, status 201 code - created | Pass |
+| 42 | /comments/ | POST | TestUser3 | Create a new comment while unauthenticated | Not permitted, unable to access comment form | Status code 403 Forbidden - Authentication credentials were not provided | Yes |
+| 43 | /comments/id | GET | TestUser1 | Navigate to /comments/id as admin | Display specific comment by ID | Displayed specific comment by ID, status 200 code | Pass |
+| 44 | /comments/id | GET | TestUser2 | Navigate to /comments/id as user | Display specific comment by ID | Displayed specific comment by ID, status 200 code | Pass |
+| 45 | /comments/id | GET | TestUser3 | Navigate to /comments/id while unauthenticated | Display specific post by ID | Displayed specific comment by ID, status 200 code | Pass |
+| 46 | /comments/id | PUT | TestUser1 | Update specific comment with new data as admin | Post updated successfully, status code 200 | Successfully updated comment, status 200 code | Pass |
+| 47 | /comments/id | PUT | TestUser2 | Update specific comment with new data as user | Post updated successfully, status code 200 | Successfully updated comment, status 200 code | Pass |
+| 48 | /comments/id | PUT | TestUser3 | Update specific comment with new data while unauthenticated | Error, status 403 code | Status 403 code, forbidden - Authentication credentials were not provided | Pass |
+| 49 | /comments/id | PUT | TestUser1 | Update TestUser2's comment as admin | Post updated successfully, status code 200 | Successfully updated comment, status 200 code | Pass |
+| 50 | /comments/id | PUT | TestUser2 | Update another user's comment | Status 403 Code - Forbidden | Status 403 Code, Forbidden - You do not have permission to perform this action | Yes |
+| 51 | /comments/id | DELETE | TestUser1 | Delete post | Post deleted successfully, status code 204 | Successfully deleted comment, status 204 code | Pass |
+| 52 | /comments/id | DELETE | TestUser1 | Delete TestUser2's comment | Post deleted successfully, status code 204 | Successfully deleted comment, status 204 code | Pass |
+| 53 | /comments/id | DELETE | TestUser2 | Delete own post | Post deleted successfully, status code 204 | Successfully deleted comment, status 204 code | Pass |
+| 54 | /comments/id | DELETE | TestUser2 | Delete another user's comment | Status 403 Code - Forbidden | Status 403 Code, Forbidden - You do not have permission to perform this action | Yes |
+| 55 | /comments/id | DELETE | TestUser3 | Delete another user's comment while unauthenticatedd | Status 403 Code - Forbidden | Status 403 Code, Forbidden - Authentication credentials were not provided | Yes |
 
 ### Python Validation
 
