@@ -42,6 +42,21 @@ These tests will be group by endpoint to viewing more manageable.
 | 6 | /profiles/id | PUT | TestUser2 | Update TestUser2's profile | Successfully update profile with Status 200 code | Profile updated with correct data along with HTTP 200 OK | Yes |
 | 7 | /profiles/id | PUT | TestUser3 | Update TestUser3's profile while unauthenticated | Unable to update profile as unauthenticated | Status 403 Code - Authentication credentials not provided | Yes |
 
+**Category Testing**
+
+| Test ID | Endpoint | HTTP Method | User | Test Case | Expected Outcome | Actual Outcome | Pass |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 8 | /categories/ | GET | TestUser1 | Navigate to /categories/ | Return a list of categories with status 200 code | Returned list of categories, status code 200 | Yes |
+| 9 | /categories/ | GET | TestUser3 | Navigate to /categories/ while unauthenticated | Return a list of categories with status 200 code | Returned list of categories, status code 200 | Yes |
+| 10 | /categories/ | POST | TestUser1 | Create a new category as admin | Successfully create new category with status 201 code | Created new category, status code 201 - created | Yes |
+| 12 | /categories/ | POST | TestUser2 | Create a new category as user | Not permitted, 403 error | Status code 403 Forbidden - You do not have permission to perform this action | Yes |
+| 13 | /categories/ | POST | TestUser3 | Create a new category while unauthenticated | Not permitted, 403 error | Status code 403 Forbidden - You do not have permission to perform this action | Yes |
+| 14 | /categories/id | PUT | TestUser1 | Edit category as admin | Successfully updated category with status 200 code | Updated category, status code 200 - ok | Yes |
+| 15 | /categories/id | PUT | TestUser2 | Navigate to categories/id as user | Status 403 Code - Forbidden | Status 403 Code, Forbidden - You do not have permission to perform this action | Yes |
+| 16 | /categories/id | PUT | TestUser3 | Navigate to categories/id while unauthenticated | Status 403 Code - Forbidden | Status 403 Code, Forbidden - Authenticated credentials were not provided | Yes |
+| 17 | /categories/id | DELETE | TestUser1 | Delete category | Successfully deleted categpry | Status 204 Code, No content - Category successfully deleted | Yes |
+
+
 
 ### Python Validation
 
