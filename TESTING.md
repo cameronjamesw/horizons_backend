@@ -114,10 +114,11 @@ These tests will be group by endpoint to viewing more manageable.
 | 59 | /followers/ | POST | TestUser1 | Create new follower instance as admin | Successfully create new follower instance | Instance created, status 201 code - created | Pass |
 | 60 | /followers/ | POST | TestUser2 | Create new follower instance as user | Successfully create new follower instance | Instance created, status 201 code - created | Pass |
 | 61 | /followers/ | POST | TestUser3 | Create a new follower instance while unauthenticated | Not permitted, unable to follow user | Status code 403 Forbidden - Authentication credentials were not provided | Yes |
-| 62 | /followers/id | DELETE | TestUser1 | Delete follow instance | Instance deleted successfully, status code 204 | Successfully deleted follow instance, status 204 code | Pass |
-| 63 | /followers/id | DELETE | TestUser2 | Delete own follow instance | Instance deleted successfully, status code 204 | Successfully deleted follow instance, status 204 code | Pass |
-| 64 | /followers/id | DELETE | TestUser2 | Delete another user's follow instance | Status 403 Code - Forbidden | Status 403 Code, Forbidden - You do not have permission to perform this action | Yes |
-| 65 | /followers/id | DELETE | TestUser3 | Delete another user's follow instance while unauthenticatedd | Status 403 Code - Forbidden | Status 403 Code, Forbidden - Authentication credentials were not provided | Yes |
+| 62 | /followers/ | POST | TestUser2 | Attempt to double follow a user alreadu followed | Error, possible duplicate | 400 Bad Request, possible duplicate | Pass |
+| 63 | /followers/id | DELETE | TestUser1 | Delete follow instance | Instance deleted successfully, status code 204 | Successfully deleted follow instance, status 204 code | Pass |
+| 64 | /followers/id | DELETE | TestUser2 | Delete own follow instance | Instance deleted successfully, status code 204 | Successfully deleted follow instance, status 204 code | Pass |
+| 65 | /followers/id | DELETE | TestUser2 | Delete another user's follow instance | Status 403 Code - Forbidden | Status 403 Code, Forbidden - You do not have permission to perform this action | Yes |
+| 66 | /followers/id | DELETE | TestUser3 | Delete another user's follow instance while unauthenticatedd | Status 403 Code - Forbidden | Status 403 Code, Forbidden - Authentication credentials were not provided | Yes |
 
 ### Python Validation
 
