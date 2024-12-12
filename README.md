@@ -31,6 +31,14 @@ The user stories themselves are recorded [on this Google sheet](https://docs.goo
 
 ### Data Models
 
+Data model schema were planned in parallel with the API endpoints, using an entity relationship diagram.
+
+Custom models implemented for Tribehub are: `profile`, `category` and `favourite`.
+
+Below is the database schema in the form of an ERD
+
+![A photo contain the ERDs for the Horizons API](/assets//Model%20databases.png)
+
 #### Profile
 
 Represents the user profile, using a one-to-one relationsip to the user model. A Profile instance is automatically created on user registration. The Profile model includes an `is_admin` field which is added through the Profile Serializer. This field checks whether the profile instance is a superuser, and if so, will be granted admin privileges. This will allow the user to create new categories and delete posts and comments of other users in the view of safeguarding.
