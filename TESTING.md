@@ -92,7 +92,7 @@ These tests will be group by endpoint to viewing more manageable.
 | 42 | /comments/ | POST | TestUser3 | Create a new comment while unauthenticated | Not permitted, unable to access comment form | Status code 403 Forbidden - Authentication credentials were not provided | Yes |
 | 43 | /comments/id | GET | TestUser1 | Navigate to /comments/id as admin | Display specific comment by ID | Displayed specific comment by ID, status 200 code | Pass |
 | 44 | /comments/id | GET | TestUser2 | Navigate to /comments/id as user | Display specific comment by ID | Displayed specific comment by ID, status 200 code | Pass |
-| 45 | /comments/id | GET | TestUser3 | Navigate to /comments/id while unauthenticated | Display specific post by ID | Displayed specific comment by ID, status 200 code | Pass |
+| 45 | /comments/id | GET | TestUser3 | Navigate to /comments/id while unauthenticated | Display specific comment by ID | Displayed specific comment by ID, status 200 code | Pass |
 | 46 | /comments/id | PUT | TestUser1 | Update specific comment with new data as admin | Comment updated successfully, status code 200 | Successfully updated comment, status 200 code | Pass |
 | 47 | /comments/id | PUT | TestUser2 | Update specific comment with new data as user | Comment updated successfully, status code 200 | Successfully updated comment, status 200 code | Pass |
 | 48 | /comments/id | PUT | TestUser3 | Update specific comment with new data while unauthenticated | Error, status 403 code | Status 403 code, forbidden - Authentication credentials were not provided | Pass |
@@ -124,7 +124,7 @@ These tests will be group by endpoint to viewing more manageable.
 
 | Test ID | Endpoint | HTTP Method | User | Test Case | Expected Outcome | Actual Outcome | Pass |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 67 | /likes/ | GET | TestUser1 | Navigate to likess/ as admin | Display list of likes | Displayed list of likes, status 200 code | Pass |
+| 67 | /likes/ | GET | TestUser1 | Navigate to likes/ as admin | Display list of likes | Displayed list of likes, status 200 code | Pass |
 | 68 | /likes/ | GET | TestUser2 | Navigate to /likes/ as user | Display list of likes | Displayed list of likes, status 200 code | Pass |
 | 69 | /likes/ | GET | TestUser3 | Navigate to /likes/ while unauthenticated | Display list of likes | Displayed list of comments, status 200 code | Pass |
 | 70 | /likes/ | POST | TestUser1 | Create new like instance as admin | Successfully create new like instance | Instance created, status 201 code - created | Pass |
@@ -135,6 +135,25 @@ These tests will be group by endpoint to viewing more manageable.
 | 75 | /likes/id | DELETE | TestUser2 | Delete own like instance | Instance deleted successfully, status code 204 | Successfully deleted like instance, status 204 code | Pass |
 | 76 | /likes/id | DELETE | TestUser2 | Delete another user's like instance | Status 403 Code - Forbidden | Status 403 Code, Forbidden - You do not have permission to perform this action | Yes |
 | 77 | /likes/id | DELETE | TestUser3 | Delete another user's like instance while unauthenticatedd | Status 403 Code - Forbidden | Status 403 Code, Forbidden - Authentication credentials were not provided | Yes |
+
+**Favourites Testing**
+
+| Test ID | Endpoint | HTTP Method | User | Test Case | Expected Outcome | Actual Outcome | Pass |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 67 | /favourites/ | GET | TestUser1 | Navigate to favourites/ as admin | Display list of favourites | Displayed list of favourites, status 200 code | Pass |
+| 68 | /favourites/ | GET | TestUser2 | Navigate to /favourites/ as user | Display list of favourites | Displayed list of favourites, status 200 code | Pass |
+| 69 | /favourites/ | GET | TestUser3 | Navigate to /favourites/ while unauthenticated | Display list of favourites | Displayed list of comments, status 200 code | Pass |
+| 70 | /favourites/ | POST | TestUser1 | Create new favourite instance as admin | Successfully create new favourite instance | Instance created, status 201 code - created | Pass |
+| 71 | /favourites/ | POST | TestUser2 | Create new favourite instance as user | Successfully create new favourite instance | Instance created, status 201 code - created | Pass |
+| 72 | /favourites/ | POST | TestUser3 | Create a new favourite instance while unauthenticated | Not permitted, unable to favourite user | Status code 403 Forbidden - Authentication credentials were not provided | Yes |
+| 73 | /favourites/ | POST | TestUser2 | Attempt to double favourite a user's post that is already favourited | Error, possible duplicate | 400 Bad Request, possible duplicate | Pass |
+| 43 | /favourites/id | GET | TestUser1 | Navigate to /favourites/id as admin | Display specific favourite instance by ID | Displayed specific favourite instance by ID, status 200 code | Pass |
+| 44 | /favourites/id | GET | TestUser2 | Navigate to /favourites/id as user | Display specific favourite instance by ID | Displayed specific favourite instance by ID, status 200 code | Pass |
+| 45 | /favourites/id | GET | TestUser3 | Navigate to /favourites/id while unauthenticated | Display specific favourite instance by ID | Displayed specific favourite instance by ID, status 200 code | Pass |
+| 74 | /favourites/id | DELETE | TestUser1 | Delete favourite instance | Instance deleted successfully, status code 204 | Successfully deleted favourite instance, status 204 code | Pass |
+| 75 | /favourites/id | DELETE | TestUser2 | Delete own favourite instance | Instance deleted successfully, status code 204 | Successfully deleted favourite instance, status 204 code | Pass |
+| 76 | /favourites/id | DELETE | TestUser2 | Delete another user's favourite instance | Status 403 Code - Forbidden | Status 403 Code, Forbidden - You do not have permission to perform this action | Yes |
+| 77 | /favourites/id | DELETE | TestUser3 | Delete another user's favourite instance while unauthenticatedd | Status 403 Code - Forbidden | Status 403 Code, Forbidden - Authentication credentials were not provided | Yes |
 
 ### Python Validation
 
