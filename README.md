@@ -48,6 +48,12 @@
 
 ## API Endpoints
 
+Here is a table containing the API endpoints
+
+| **URL** | **Notes** | **HTTP Method** | **CRUD Operation** | **View Type** | **POST/PUT Data Format** |
+|---|---|---:|---|---:|---|
+| **Django AllAuth Endpoints** |
+
 ## Frameworks, Libraries & Dependencies
 
 ## Testing
