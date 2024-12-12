@@ -4,6 +4,18 @@ from .models import Category
 
 
 class CategorySerializer(serializers.ModelSerializer):
+    """
+    Serializer for Category model.
+
+    Fields:
+        - `id` (int): Unique identifier for the comment, read-only.
+        - `owner` (str): Username of the category owner, read-only.
+        - `name` (str): The name of the category instance
+        - `created_at` (str): Human-readable timestamp of when the comment was
+        created, read-only.
+        - `posts_count` (int): Lists the amount of posts tied to a category
+    """
+
     owner = serializers.ReadOnlyField(source='owner.username')
     posts_count = serializers.ReadOnlyField()
 

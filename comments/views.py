@@ -5,8 +5,6 @@ from horizons_backend.permissions import IsOwnerOrReadOnly
 from .models import Comment
 from .serializers import CommentSerializer, CommentDetailSerializer
 
-# Create your views here.
-
 
 class CommentList(generics.ListCreateAPIView):
     """

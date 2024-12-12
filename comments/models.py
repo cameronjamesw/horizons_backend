@@ -5,7 +5,7 @@ from posts.models import Post
 
 class Comment(models.Model):
     """
-        Represents a comment on a post, with likes, and dislikes.
+        Represents a comment on a post with likes.
         Each comment is linked to a user and a post.
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
