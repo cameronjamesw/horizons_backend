@@ -96,6 +96,15 @@ Here is a table containing the API endpoints
 | /comments/int:pk/ | Notes | PUT | UPDATE | DETAIL | {<br>    "owner":"string",<br>    "post":"id",<br> "content":"string",<br>    "updated_at":"datetimefield"<br>} |
 | /comments/int:pk/ | Notes | DELETE | DELETE | DETAIL | N/A |
 
+### Favourites Endpoints
+
+| **URL** | **Notes** | **HTTP Method** | **CRUD Operation** | **View Type** | **POST/PUT Data Format** |
+|---|---|---|---|---|---|
+| /favourites/ | Notes | GET | READ | LIST | N/A |
+| /favourites/ | Notes | POST | CREATE | LIST | {<br>    "owner":"string",<br>    "post":"id",<br>    "created_at":"datetimefield"<br>} |
+| /favourites/int:pk/ | Notes | GET | READ | DETAIL | N/A |
+| /favourites/int:pk/ | Notes | DELETE | DELETE | DETAIL | N/A |
+
 ## Frameworks, Libraries & Dependencies
 
 ## Testing
