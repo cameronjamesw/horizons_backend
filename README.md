@@ -82,6 +82,10 @@ The likes model represents a user liking a specific post for showing their inter
 
 ### Follower
 
+The Follower model manages the relationships where users follow other users within the application. It establishes a connection between the `owner` (the user who is following) and the `followed` (the user being followed), allowing for tracking of these interactions. Both the fields, `owner` and `followed` have an attribute of a `related_name` when referencing the ForeignKey. This allows the API to easily distinguish between the two fields - as both are referencing the User Model in their ForeignKey. Each follow relationship is time-stamped, showing when it was created, and the model enforces uniqueness to prevent duplicate follow relationships. The data is ordered by the most recent followings by default.
+
+The **FollowerSerializer** is responsible for converting these follow relationships into a serialized format for API responses. It includes fields for the usernames of both the follower and the followed, and it prevents users from following themselves or following the same user multiple times. This ensures the integrity of the following system within the application, supporting functionalities like displaying followers, following counts, and managing user connections.
+
 ## API Endpoints
 
 Here is a table containing the API endpoints
