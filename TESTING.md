@@ -114,11 +114,27 @@ These tests will be group by endpoint to viewing more manageable.
 | 59 | /followers/ | POST | TestUser1 | Create new follower instance as admin | Successfully create new follower instance | Instance created, status 201 code - created | Pass |
 | 60 | /followers/ | POST | TestUser2 | Create new follower instance as user | Successfully create new follower instance | Instance created, status 201 code - created | Pass |
 | 61 | /followers/ | POST | TestUser3 | Create a new follower instance while unauthenticated | Not permitted, unable to follow user | Status code 403 Forbidden - Authentication credentials were not provided | Yes |
-| 62 | /followers/ | POST | TestUser2 | Attempt to double follow a user alreadu followed | Error, possible duplicate | 400 Bad Request, possible duplicate | Pass |
+| 62 | /followers/ | POST | TestUser2 | Attempt to double follow a user already followed | Error, possible duplicate | 400 Bad Request, possible duplicate | Pass |
 | 63 | /followers/id | DELETE | TestUser1 | Delete follow instance | Instance deleted successfully, status code 204 | Successfully deleted follow instance, status 204 code | Pass |
 | 64 | /followers/id | DELETE | TestUser2 | Delete own follow instance | Instance deleted successfully, status code 204 | Successfully deleted follow instance, status 204 code | Pass |
 | 65 | /followers/id | DELETE | TestUser2 | Delete another user's follow instance | Status 403 Code - Forbidden | Status 403 Code, Forbidden - You do not have permission to perform this action | Yes |
-| 66 | /followers/id | DELETE | TestUser3 | Delete another user's follow instance while unauthenticatedd | Status 403 Code - Forbidden | Status 403 Code, Forbidden - Authentication credentials were not provided | Yes |
+| 66 | /followers/id | DELETE | TestUser3 | Delete another user's follow instance while unauthenticatedd | Status 403 Code - Forbidden | Status 403 Code, Forbidden - Authentication credentials were not provided | Yes | 
+
+**Likes Testing**
+
+| Test ID | Endpoint | HTTP Method | User | Test Case | Expected Outcome | Actual Outcome | Pass |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 67 | /likes/ | GET | TestUser1 | Navigate to likess/ as admin | Display list of likes | Displayed list of likes, status 200 code | Pass |
+| 68 | /likes/ | GET | TestUser2 | Navigate to /likes/ as user | Display list of likes | Displayed list of likes, status 200 code | Pass |
+| 69 | /likes/ | GET | TestUser3 | Navigate to /likes/ while unauthenticated | Display list of likes | Displayed list of comments, status 200 code | Pass |
+| 70 | /likes/ | POST | TestUser1 | Create new like instance as admin | Successfully create new like instance | Instance created, status 201 code - created | Pass |
+| 71 | /likes/ | POST | TestUser2 | Create new like instance as user | Successfully create new like instance | Instance created, status 201 code - created | Pass |
+| 72 | /likes/ | POST | TestUser3 | Create a new like instance while unauthenticated | Not permitted, unable to like user | Status code 403 Forbidden - Authentication credentials were not provided | Yes |
+| 73 | /likes/ | POST | TestUser2 | Attempt to double like a user's post that is already liked | Error, possible duplicate | 400 Bad Request, possible duplicate | Pass |
+| 74 | /likes/id | DELETE | TestUser1 | Delete like instance | Instance deleted successfully, status code 204 | Successfully deleted like instance, status 204 code | Pass |
+| 75 | /likes/id | DELETE | TestUser2 | Delete own like instance | Instance deleted successfully, status code 204 | Successfully deleted like instance, status 204 code | Pass |
+| 76 | /likes/id | DELETE | TestUser2 | Delete another user's like instance | Status 403 Code - Forbidden | Status 403 Code, Forbidden - You do not have permission to perform this action | Yes |
+| 77 | /likes/id | DELETE | TestUser3 | Delete another user's like instance while unauthenticatedd | Status 403 Code - Forbidden | Status 403 Code, Forbidden - Authentication credentials were not provided | Yes |
 
 ### Python Validation
 
