@@ -124,6 +124,50 @@ Here is a table containing the API endpoints
 | /followers/int:pk/ | Notes | DELETE | DELETE | DETAIL | N/A |
 
 ## Frameworks, Libraries & Dependencies
+The Horizons API is implemented in Python using [Django](https://www.djangoproject.com) and [Django Rest Framework](https://django-filter.readthedocs.io/en/stable/).
+
+The following additional utilities, apps and modules were also used.
+
+### django-cloudinary-storage
+https://pypi.org/project/django-cloudinary-storage/
+
+Enables cloudinary integration for storing user profile images in cloudinary.
+
+### dj-allauth
+https://django-allauth.readthedocs.io/en/latest/
+
+Used for user authentication. While not currently utilised, this package enables registration and authentication using a range of social media accounts. This may be implemented in a future update.
+
+### dj-rest-auth
+https://dj-rest-auth.readthedocs.io/en/latest/introduction.html
+
+Provides REST API endpoints for login and logout. The user registration endpoints provided by dj-rest-auth are not utilised by the Tribehub frontend, as custom functionality was required and implemented by the Tribehub API.
+
+### djangorestframework-simplejwt
+https://django-rest-framework-simplejwt.readthedocs.io/en/latest/
+
+Provides JSON web token authentication.
+
+### dj-database-url
+https://pypi.org/project/dj-database-url/
+
+Creates an environment variable to configure the connection to the database.
+
+### psychopg2
+https://pypi.org/project/psycopg2/
+
+Database adapater to enable interaction between Python and the PostgreSQL database.
+
+### django-filter
+https://django-filter.readthedocs.io/en/stable/
+
+django-filter is used to implement filtering of posts via `categories`, `favourites`, `likes` and `profiles`. It is also used in order to allow the user to search for posts using a search feature which is implemented into the front-end.
+
+### django-cors-headers
+https://pypi.org/project/django-cors-headers/
+
+This Django app adds Cross-Origin-Resource Sharing (CORS) headers to responses, to enable the API to respond to requests from origins other than its own host.
+Horizons is configured to allow requests from all origins, to facilitate future development of a native mobile app using this API.
 
 ## Testing
 
