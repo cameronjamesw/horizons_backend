@@ -19,12 +19,6 @@
   - [API Endpoints](#api-endpoints)
   - [Frameworks, Libraries & Dependencies](#frameworks-libraries--dependencies)
   - [Testing](#testing)
-    * [Manual Testing](#manual-testing)
-    * [Python Validation](#python-validation)
-    * [Resolved Bugs](#resolved-bugs)
-      + [Bugs Found While Testing API In Isolation](#bugs-found-while-testing-api-in-isolation)
-      + [Bugs Found While Testing In React](#bugs-found-while-testing-in-react)
-    * [Unresolved Bugs](#unresolved-bugs)
   - [Deployment](#deployment)
   - [Credits](#credits)
 
@@ -211,17 +205,7 @@ Horizons is configured to allow requests from all origins, to facilitate future 
 
 ## Testing
 
-### Manual Testing
-
-### Python Validation
-
-### Resolved Bugs
-
-#### Bugs Found While Testing API In Isolation
-
-#### Bugs Found While Testing In React
-
-### Unresolved Bugs
+Testing for the Horizons API can be found in the [TESTING.md](/TESTING.md) folder.
 
 ## Deployment
 
