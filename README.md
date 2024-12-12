@@ -30,6 +30,11 @@
 
 ## Planning
 
+Planning started by creating epics and user stories for the frontend application, based on the project goals. The user stories were used to inform wireframes mapping out the intended functionality and 'flow' through the app. See the [repo for the frontend React app](/) for more details.
+
+The user stories requiring implementation to achieve a minimum viable product (MVP) were then mapped to API endpoints required to support the desired functionality.
+The user stories themselves are recorded [on this Google sheet](https://docs.google.com/spreadsheets/d/1xT0BXdg621rtGnQodwNQhRxqZqIO8vNXq3Ope-zOwR8/edit?usp=sharing), with the required API endpoints mapped to user stories on [a second sheet on the same document](https://docs.google.com/spreadsheets/d/1xT0BXdg621rtGnQodwNQhRxqZqIO8vNXq3Ope-zOwR8/edit?usp=sharing). You may need to manually select the two worksheets, as the Google docs link to the endpoints worksheet sometimes defaults to the user stories sheet.
+
 ### Data Models
 
 #### Profile
