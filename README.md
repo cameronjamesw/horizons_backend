@@ -66,7 +66,7 @@ Here is a table containing the API endpoints
 | /profiles/int:pk/ | Notes | GET | READ | DETAIL | N/A |
 | /profiles/int:pk/ | Notes | PUT | UPDATE | DETAIL | {<br>    "owner":"string",<br>    "name":"string",<br>    "island_name":"string",<br> "friend_code":"integer",<br> "bio":"string",<br> "image":"string", <br> "updated_at":"datetimefield" <br>} |
 
-### Post Endpoints
+### Posts Endpoints
 
 | **URL** | **Notes** | **HTTP Method** | **CRUD Operation** | **View Type** | **POST/PUT Data Format** |
 |---|---|---|---|---|---|
@@ -75,6 +75,16 @@ Here is a table containing the API endpoints
 | /posts/int:pk/ | Notes | GET | READ | DETAIL | N/A |
 | /posts/int:pk/ | Notes | PUT | UPDATE | DETAIL | {<br>    "owner":"string",<br>    "title":"string",<br>    "contente":"string",<br> "category":"id",<br> "image":"string", <br> "updated_at":"datetimefield" <br>} |
 | /posts/int:pk/ | Notes | DELETE | DELETE | DETAIL | N/A |
+
+### Categories Endponts
+
+| **URL** | **Notes** | **HTTP Method** | **CRUD Operation** | **View Type** | **POST/PUT Data Format** |
+|---|---|---|---|---|---|
+| /categories/ | Notes | GET | READ | LIST | N/A |
+| /categories/ | Notes | POST | CREATE | LIST | {<br>    "owner":"string",<br>    "name":"string",<br>    "created_at":"datetimefield"<br>} |
+| /categories/int:pk/ | Notes | GET | READ | DETAIL | N/A |
+| /categories/int:pk/ | Notes | PUT | UPDATE | DETAIL | {<br>    "owner":"string",<br>    "name":"string",<br>    "updated_at":"datetimefield"<br>} |
+| /categories/int:pk/ | Notes | DELETE | DELETE | DETAIL | N/A |
 
 ## Frameworks, Libraries & Dependencies
 
