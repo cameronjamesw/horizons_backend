@@ -185,4 +185,37 @@ Horizons is configured to allow requests from all origins, to facilitate future 
 
 ## Deployment
 
+The TribeHub API is deployed to Heroku, using an ElephantSQL Postgres database.
+To duplicate deployment to Heroku, follow these steps:
+
+- Fork or clone this repository in GitHub.
+- You will need a Cloudinary account to host user profile images.
+- Login to Cloudinary.
+- Select the 'dashboard' option.
+- Copy the value of the 'API Environment variable' from the part starting `cloudinary://` to the end. You may need to select the eye icon to view the full environment variable. Paste this value somewhere for safe keeping as you will need it shortly (but destroy after deployment).
+- Log in to Heroku.
+- Select 'Create new app' from the 'New' menu at the top right.
+- Enter a name for the app and select the appropriate region.
+- Select 'Create app'.
+- Select 'Settings' from the menu at the top.
+- Navigate to [CI's Database Maker](https://dbs.ci-dbs.net/) and input your email address upon request.
+- Once your email has been entered, you will recieve your `Database URL` shortly in an email from the Code Institue Bot.
+- Copy the PostGres database URL to your clipboard (this starts with `postgresql://`).
+- Return to the Heroku dashboard.
+- Select the 'settings' tab.
+- Locate the 'reveal config vars' link and select.
+- Enter the following config var names and values:
+    - `CLOUDINARY_URL`: *your cloudinary URL as obtained above*
+    - `DATABASE_URL`: *your PostGreSQL database URL as obtained above*
+    - `SECRET_KEY`: *your secret key*
+    - `ALLOWED_HOST`: *the url of your Heroku app (but without the `https://` prefix)*
+- Ensure that these values are also in your `env.py` fi;e within the repository you forked/cloned earlier in the steps.
+- Select the 'Deploy' tab at the top.
+- Select 'GitHub' from the deployment options and confirm you wish to deploy using GitHub. You may be asked to enter your GitHub password.
+- Find the 'Connect to GitHub' section and use the search box to locate your repo.
+- Select 'Connect' when found.
+- Optionally choose the main branch under 'Automatic Deploys' and select 'Enable Automatic Deploys' if you wish your deployed API to be automatically redeployed every time you push changes to GitHub.
+- Find the 'Manual Deploy' section, choose 'main' as the branch to deploy and select 'Deploy Branch'.
+- Your API will shortly be deployed and you will be given a link to the deployed site when the process is complete.
+
 ## Credits
