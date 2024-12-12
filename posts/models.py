@@ -4,6 +4,7 @@ from category.models import Category
 
 # Create your models here.
 
+
 class Post(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=50, blank=False)
@@ -14,7 +15,8 @@ class Post(models.Model):
         upload_to='images/', default='../default_image_phixuu',
         blank=True
     )
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='post')
+    category = models.ForeignKey(
+        Category, on_delete=models.SET_NULL, null=True, related_name='post')
 
     class Meta:
         ordering = ['-created_at']

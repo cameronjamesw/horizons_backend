@@ -9,6 +9,7 @@ from horizons_backend.permissions import IsOwnerOrReadOnly
 
 # Create your views here.
 
+
 class PostList(generics.ListCreateAPIView):
     serializer_class = PostSerializer
     permission_classes = [

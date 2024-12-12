@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Post
 from likes.models import Like
 
+
 class PostSerializer(serializers.ModelSerializer):
 
     owner = serializers.ReadOnlyField(source='owner.username')
@@ -11,7 +12,6 @@ class PostSerializer(serializers.ModelSerializer):
     like_id = serializers.SerializerMethodField()
     comments_count = serializers.ReadOnlyField()
     likes_count = serializers.ReadOnlyField()
-
 
     def validate_image(self, value):
         if value.size > 1024 * 1024 * 2:
