@@ -45,6 +45,12 @@ Users can edit their own `name`, `island_name`, `friend_code`, `bio` and `image`
 
 #### Category
 
+The category model represents a category within the database - these instances can only be created by admin users, mainly so that they are kept in moderation and they don't spiral out of control. The category model is tied to the post model with a one-to-many relationship. When creating post instances, authorised users are permitted to add their post to a category through a drop down menu - on creation this post instance will then be tied to the category in question.
+
+Users have the option to search for posts based on the category they are part of, and when sifting through categories, the categories will be returned based on their `post_count`, a field added with the `annotate` function. This field will allow users to display the most popular categories - categories which have the most amount of posts tied to them.
+
+When creating and editing a category, admin users can only alter the `name` field.
+
 #### Favourite
 
 ### Post
