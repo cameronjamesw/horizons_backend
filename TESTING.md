@@ -34,7 +34,10 @@ These tests will be group by endpoint to viewing more manageable.
 
 | Test ID | Endpoint | HTTP Method | User | Test Case | Expected Outcome | Actual Outcome | Pass |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | /profiles/ | GET | TestUser1 | Navigate to /profiles/ | Retrieve a list of profiles with 200 status | Profiles displayed along with HTTP 200 OK | Yes | 
+| 1 | /profiles/ | GET | TestUser1 | Navigate to /profiles/ | Retrieve a list of profiles with 200 status code | Profiles displayed along with HTTP 200 OK | Yes |
+| 2 | /profiles/id | GET | TestUser1 | Navigate to /profiles/1 | Retrieve profile with id of 1 | Profile #1 displayed along with HTTP 200 OK | Yes |
+| 3 | /profiles/id | PUT | TestUser1 | Update TestUser1's profile | Successfully update profile with Status 200 code | Profile updated with correct data along with HTTP 200 OK | Yes |
+| 4 | /profiles/id | PUT | TestUser1 | Update TestUser2's profile | No option to update profile | TestUser2's profile displayed with no option to update | Yes |
 
 ### Python Validation
 
