@@ -19,6 +19,17 @@
 
 ### Manual Testing
 
+#### Testing Methodology
+
+A series of manual tests have been planned out accordingly to the end points previously noted in [ReadMe.md](/README.md). 
+
+A series of `TestUsers` have been created in the view of testing, and these accounts shall be used when testing the application.
+`TestUser1` is a superuser that has admin privelleges, so should be able to create, edit and deletes categories, as well as delete posts and comments of other users in the view of safeguarding.
+`TestUser2` is a standard user who will be authenticated throughout the testing process. They should be able to create and edit their own posts, like, comment and favourite post too. But they are denied admin priveleges, so they will not be able to update or delete another user's post or comment, and they will not be able to access the category detail view, as well as create a category.
+`TestUser3` will be an unauthenticated user, so they will be able to view the data fetched with the API, but they will not be able to mutilate it in anyway.
+
+These tests will be group by endpoint to viewing more managable.
+
 ### Python Validation
 
 All files containing custom Python code were validated using the [Code Institute Python Linter](https://pep8ci.herokuapp.com/):
