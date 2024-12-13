@@ -96,74 +96,74 @@ Here is a table containing the API endpoints
 
 | **URL** | **Notes** | **HTTP Method** | **CRUD Operation** | **View Type** | **POST/PUT Data Format** |
 |---|---|---|---|---|---|
-| /dj-rest-auth/registration/ | Notes | POST | N/A | N/A | {<br>    "username":"string",<br>    "password":"string",<br>    "password2":"string"<br>} |
-| /dj-rest-auth/login/ | Notes | POST | N/A | N/A | {<br>    "username":"string",<br>    "password":"string",<br>    "password2":"string"<br>} |
-| /dj-rest-auth/logout/ | Notes | POST | N/A | N/A | N/A |
+| /dj-rest-auth/registration/ | This allows the user to create an account. It creates a new user instance which in turn creates a new profile instance too. | POST | N/A | N/A | {<br>    "username":"string",<br>    "password":"string",<br>    "password2":"string"<br>} |
+| /dj-rest-auth/login/ | This allows the user to log into a pre-existing account by checking the provided data agianst their credentials | POST | N/A | N/A | {<br>    "username":"string",<br>    "password":"string",<br>    "password2":"string"<br>} |
+| /dj-rest-auth/logout/ | This allows the user to log out of their account and enter an unauthenticated state. | POST | N/A | N/A | N/A |
 
 ### Profile Endpoints
 
 | **URL** | **Notes** | **HTTP Method** | **CRUD Operation** | **View Type** | **POST/PUT Data Format** |
 |---|---|---|---|---|---|
-| /profiles/ | Notes | GET | READ | LIST | N/A |
-| /profiles/int:pk/ | Notes | GET | READ | DETAIL | N/A |
-| /profiles/int:pk/ | Notes | PUT | UPDATE | DETAIL | {<br>    "owner":"string",<br>    "name":"string",<br>    "island_name":"string",<br> "friend_code":"integer",<br> "bio":"string",<br> "image":"string", <br> "updated_at":"datetimefield" <br>} |
+| /profiles/ | This endpoint provides a list of profiles to the user. Profiles will be ordered in descending order of creation. | GET | READ | LIST | N/A |
+| /profiles/int:pk/ | This endpoint allows the user to retrieve specific profile information and data. | GET | READ | DETAIL | N/A |
+| /profiles/int:pk/ | When using the PUT method on the profile detail, only the owner of the profile will be able to update it. Permissions are in place to ensure this. | PUT | UPDATE | DETAIL | {<br>    "owner":"string",<br>    "name":"string",<br>    "island_name":"string",<br> "friend_code":"integer",<br> "bio":"string",<br> "image":"string", <br> "updated_at":"datetimefield" <br>} |
 
 ### Posts Endpoints
 
 | **URL** | **Notes** | **HTTP Method** | **CRUD Operation** | **View Type** | **POST/PUT Data Format** |
 |---|---|---|---|---|---|
-| /posts/ | Notes | GET | READ | LIST | N/A |
-| /posts/ | Notes | POST | CREATE | LIST | {<br>    "owner":"string",<br>    "title":"string",<br>    "contente":"string",<br> "category":"id",<br> "image":"string", <br> "created_at":"datetimefield" <br>} |
-| /posts/int:pk/ | Notes | GET | READ | DETAIL | N/A |
-| /posts/int:pk/ | Notes | PUT | UPDATE | DETAIL | {<br>    "owner":"string",<br>    "title":"string",<br>    "contente":"string",<br> "category":"id",<br> "image":"string", <br> "updated_at":"datetimefield" <br>} |
-| /posts/int:pk/ | Notes | DELETE | DELETE | DETAIL | N/A |
+| /posts/ | This endpoint allows the user to retrieve a list of current posts. | GET | READ | LIST | N/A |
+| /posts/ | This endpoint allows authenticated users to create new posts. If the data is not valid then the data will not be submitted. | POST | CREATE | LIST | {<br>    "owner":"string",<br>    "title":"string",<br>    "contente":"string",<br> "category":"id",<br> "image":"string", <br> "created_at":"datetimefield" <br>} |
+| /posts/int:pk/ | This endpoint allows users to retrieve specific information regarding posts. Any user, authenticated or not, is able to access this endpoint. | GET | READ | DETAIL | N/A |
+| /posts/int:pk/ | When updaing posts using this endpoint, only the authenticated post owner, or a site admin, will be able to update a post. Permissions are in place to ensure this. | PUT | UPDATE | DETAIL | {<br>    "owner":"string",<br>    "title":"string",<br>    "contente":"string",<br> "category":"id",<br> "image":"string", <br> "updated_at":"datetimefield" <br>} |
+| /posts/int:pk/ | This endpoint allows users to delete their posts if needed. Only the post owner and site admins will be able to delete posts. | DELETE | DELETE | DETAIL | N/A |
 
 ### Categories Endponts
 
 | **URL** | **Notes** | **HTTP Method** | **CRUD Operation** | **View Type** | **POST/PUT Data Format** |
 |---|---|---|---|---|---|
-| /categories/ | Notes | GET | READ | LIST | N/A |
-| /categories/ | Notes | POST | CREATE | LIST | {<br>    "owner":"string",<br>    "name":"string",<br>    "created_at":"datetimefield"<br>} |
-| /categories/int:pk/ | Notes | GET | READ | DETAIL | N/A |
-| /categories/int:pk/ | Notes | PUT | UPDATE | DETAIL | {<br>    "owner":"string",<br>    "name":"string",<br>    "updated_at":"datetimefield"<br>} |
-| /categories/int:pk/ | Notes | DELETE | DELETE | DETAIL | N/A |
+| /categories/ | This endpoint returns a list of the categories to the user. When recieving the list of categories, users will be able to see how many posts are part of each category. | GET | READ | LIST | N/A |
+| /categories/ | This endpoint allows admin users to create new categories, it is reserved for site admins only | POST | CREATE | LIST | {<br>    "owner":"string",<br>    "name":"string",<br>    "created_at":"datetimefield"<br>} |
+| /categories/int:pk/ | Here admin users are able to retrieve the details of categories. This endpoint is again reserved for admins. | GET | READ | DETAIL | N/A |
+| /categories/int:pk/ | The PUT method endpoint is again reserved for admin users only. Specific permissions are put in place to guarantee this. | PUT | UPDATE | DETAIL | {<br>    "owner":"string",<br>    "name":"string",<br>    "updated_at":"datetimefield"<br>} |
+| /categories/int:pk/ | When deleting categories, this endpoint is reserved specifically for admin users. Upon deletion, any posts that are related to the deleted category will have their category set to NULL. | DELETE | DELETE | DETAIL | N/A |
 
 ### Comments Endpoints
 
 | **URL** | **Notes** | **HTTP Method** | **CRUD Operation** | **View Type** | **POST/PUT Data Format** |
 |---|---|---|---|---|---|
-| /comments/ | Notes | GET | READ | LIST | N/A |
-| /comments/ | Notes | POST | CREATE | LIST | {<br>    "owner":"string",<br>    "post":"id",<br> "content":"string",<br>    "created_at":"datetimefield"<br>} |
-| /comments/int:pk/ | Notes | GET | READ | DETAIL | N/A |
-| /comments/int:pk/ | Notes | PUT | UPDATE | DETAIL | {<br>    "owner":"string",<br>    "post":"id",<br> "content":"string",<br>    "updated_at":"datetimefield"<br>} |
-| /comments/int:pk/ | Notes | DELETE | DELETE | DETAIL | N/A |
+| /comments/ | When using this endpoint, a list of comments are returned to the user, each comment is related to a post. Upon deletion of a post, all comments related to that post are deleted too. | GET | READ | LIST | N/A |
+| /comments/ | This endpoint allows authenticated users to create comments which will be linked to the related post. | POST | CREATE | LIST | {<br>    "owner":"string",<br>    "post":"id",<br> "content":"string",<br>    "created_at":"datetimefield"<br>} |
+| /comments/int:pk/ | This endpoint returns the detail of a specific comment by fetching it with it's comment ID. | GET | READ | DETAIL | N/A |
+| /comments/int:pk/ | This endpoint allows authenticated owners to update their comment if needed. Admin users are also permitted to update other user's comment if neccessary. | PUT | UPDATE | DETAIL | {<br>    "owner":"string",<br>    "post":"id",<br> "content":"string",<br>    "updated_at":"datetimefield"<br>} |
+| /comments/int:pk/ | This endpoint allows users to delete their comment from a post. Only the comment owner and admin users have the permission to delete comments. | DELETE | DELETE | DETAIL | N/A |
 
 ### Favourites Endpoints
 
 | **URL** | **Notes** | **HTTP Method** | **CRUD Operation** | **View Type** | **POST/PUT Data Format** |
 |---|---|---|---|---|---|
-| /favourites/ | Notes | GET | READ | LIST | N/A |
-| /favourites/ | Notes | POST | CREATE | LIST | {<br>    "owner":"string",<br>    "post":"id",<br>    "created_at":"datetimefield"<br>} |
-| /favourites/int:pk/ | Notes | GET | READ | DETAIL | N/A |
-| /favourites/int:pk/ | Notes | DELETE | DELETE | DETAIL | N/A |
+| /favourites/ | When using this endpoint a list of the favourite instances are returned to the user. | GET | READ | LIST | N/A |
+| /favourites/ | Upon using this endpoint, authenticated users are able to create a new instance of a favourite. Each favourite instance is tied to a post, and users will be unable to favourite a post more than once. | POST | CREATE | LIST | {<br>    "owner":"string",<br>    "post":"id",<br>    "created_at":"datetimefield"<br>} |
+| /favourites/int:pk/ | This endpoint returns details about the specific favourite instance requested. | GET | READ | DETAIL | N/A |
+| /favourites/int:pk/ | This allows the owner of the favourite instance to delete the favourite. Permissions are in place to ensure that only the owners are permitted to do so. | DELETE | DELETE | DETAIL | N/A |
 
 ### Likes Endpoints
 
 | **URL** | **Notes** | **HTTP Method** | **CRUD Operation** | **View Type** | **POST/PUT Data Format** |
 |---|---|---|---|---|---|
-| /likes/ | Notes | GET | READ | LIST | N/A |
-| /likes/ | Notes | POST | CREATE | LIST | {<br>    "owner":"string",<br>    "post":"id",<br>    "created_at":"datetimefield"<br>} |
-| /likes/int:pk/ | Notes | GET | READ | DETAIL | N/A |
-| /likes/int:pk/ | Notes | DELETE | DELETE | DETAIL | N/A |
+| /likes/ | This endpoint returns a list of all the like instances to the user upon request. | GET | READ | LIST | N/A |
+| /likes/ | This endpoint allows authenticated users to create a new like instance. Permissions are in place to ensure that only authenticated users are able to access this endpoint. | POST | CREATE | LIST | {<br>    "owner":"string",<br>    "post":"id",<br>    "created_at":"datetimefield"<br>} |
+| /likes/int:pk/ | By following this endpoint, users are able to retrieve a detailed view of the specific like instance requested with the ID. | GET | READ | DETAIL | N/A |
+| /likes/int:pk/ | This endpoint allows users to delete their like instance, this permission is reserved for the like owner. | DELETE | DELETE | DETAIL | N/A |
 
 ### Followers Endpoints
 
 | **URL** | **Notes** | **HTTP Method** | **CRUD Operation** | **View Type** | **POST/PUT Data Format** |
 |---|---|---|---|---|---|
-| /followers/ | Notes | GET | READ | LIST | N/A |
-| /followers/ | Notes | POST | CREATE | LIST | {<br>    "owner":"string",<br>    "followed":"id",<br>    "created_at":"datetimefield"<br>} |
-| /followers/int:pk/ | Notes | GET | READ | DETAIL | N/A |
-| /followers/int:pk/ | Notes | DELETE | DELETE | DETAIL | N/A |
+| /followers/ | This endpoint returns a list all of the follower instances. | GET | READ | LIST | N/A |
+| /followers/ | When authenticated, this endpoint allows users to create their own follower instance, essentially following another user. Permissions are in place to prohibit unauthenticated users from accessing this endpoint. Users are unable to create two follower instances that are tied to the same profile. | POST | CREATE | LIST | {<br>    "owner":"string",<br>    "followed":"id",<br>    "created_at":"datetimefield"<br>} |
+| /followers/int:pk/ | This endpoint displays a detailed view of specific follower instances. | GET | READ | DETAIL | N/A |
+| /followers/int:pk/ | This endpoint allows the owners of the follower instances to delete their instance. | DELETE | DELETE | DETAIL | N/A |
 
 ## Frameworks, Libraries & Dependencies
 The Horizons API is implemented in Python using [Django](https://www.djangoproject.com) and [Django Rest Framework](https://django-filter.readthedocs.io/en/stable/).
