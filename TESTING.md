@@ -212,6 +212,12 @@ All files containing custom Python code were validated using the [Code Institute
 
 #### Bugs Found While Testing API In Isolation
 
+- During deployment, Heroku failed to build the initial app due to a failure when recieving the dependencies for the build wheel. After some investigation I found that the version of Python I was using was not defined to Heroku, and in turn Heroku installed a different version of Python. Becuase of this, the later version which Heroku installed was breaking some of the other dependencies. To overcome this, I had to create `runtime.txt` which contained the correct version of Python I was using `python-3.12.2` - this file tells Heroku which version of Python to deploy with, and in turn fixed the deployment bug.
+
 #### Bugs Found While Testing In React
 
+- TBD
+
 ### Unresolved Bugs
+
+- Nothing to note as of yet.
