@@ -251,3 +251,9 @@ To duplicate deployment to Heroku, follow these steps:
 - Your API will shortly be deployed and you will be given a link to the deployed site when the process is complete.
 
 ## Credits
+
+- [Very Academy](https://www.youtube.com/watch?v=W_5KQeU4Qtg&list=PLOLrQ9Pn6cazL1rwTY2d66M9VppexGL-_&index=17) - This video of theirs gave me a great deal of inspiration when designing my Entity Relationship Diagrams.
+
+- [This article](https://stackoverflow.com/questions/37968770/django-rest-framework-permission-isadminorreadonly) from Stack Overflow helped me design the `IsAdminOrReadOnly` permission in `horizons_backend.permissions.py`
+
+- [This article](https://stackoverflow.com/questions/45563194/django-rest-permissions-allow-both-isadmin-and-custom-permission) from Stack Overflow helped me code the `IsOwnerOrAdmin` permission is `horizons_backend.permissions.py`
