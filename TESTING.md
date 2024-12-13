@@ -39,7 +39,7 @@ These tests will be group by endpoint to viewing more manageable.
 | 3 | /profiles/id | PUT | TestUser1 | Update TestUser1's profile | Successfully update profile with Status 200 code | Profile updated with correct data along with HTTP 200 OK | Pass |
 | 4 | /profiles/id | PUT | TestUser1 | Add more than 12 characters to friendcode field | Status 400 error with error message, maximum of 12 characters | Status 400 Error, ensure this field has no more than 12 characters  | Pass |
 | 5 | /profiles/id | PUT | TestUser1 | Update TestUser2's profile | 403 Forbidden Code | Status code 403 Forbidden - You do not have permission to perform this action | Pass |
-| 6 | /profiles/id | PUT | TestUser2 | Update TestUser2's profile | Successfully update profile with Status 200 code | Profile updated with correct data along with HTTP 200 OK |Passs |
+| 6 | /profiles/id | PUT | TestUser2 | Update TestUser2's profile | Successfully update profile with Status 200 code | Profile updated with correct data along with HTTP 200 OK | Pass |
 | 7 | /profiles/id | PUT | TestUser3 | Update TestUser3's profile while unauthenticated | Unable to update profile as unauthenticated | Status 403 Code - Authentication credentials not provided | Pass |
 
 **Category Testing**
