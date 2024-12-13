@@ -257,3 +257,7 @@ To duplicate deployment to Heroku, follow these steps:
 - [This article](https://stackoverflow.com/questions/37968770/django-rest-framework-permission-isadminorreadonly) from Stack Overflow helped me design the `IsAdminOrReadOnly` permission in `horizons_backend.permissions.py`
 
 - [This article](https://stackoverflow.com/questions/45563194/django-rest-permissions-allow-both-isadmin-and-custom-permission) from Stack Overflow helped me code the `IsOwnerOrAdmin` permission is `horizons_backend.permissions.py`
+
+- Credit to Andy Gutteridge and his exceptional [ReadMe](https://github.com/andy-guttridge/tribehub_drf) which helped me grasp an efficient and effective structure moving forward.
+
+- Credit to Code Institutes's content regarding serializers, in particular the post and likes serializers.
