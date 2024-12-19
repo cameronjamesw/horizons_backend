@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Post
 from likes.models import Like
+from favourites.models import Favourite
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -18,6 +19,7 @@ class PostSerializer(serializers.ModelSerializer):
     comments_count = serializers.ReadOnlyField()
     likes_count = serializers.ReadOnlyField()
     category_name = serializers.ReadOnlyField(source='category.name')
+    favourite_id = serializers.SerializerMethodField()
 
     def validate_image(self, value):
         """
@@ -59,6 +61,19 @@ class PostSerializer(serializers.ModelSerializer):
             return like.id if like else None
         return None
 
+    def get_favourite_id(self, obj):
+        """
+        Retrieves the ID of the Favourite object if the authenticated user
+        has favourited the post; returns None otherwise.
+        """
+        user = self.context['request'].user
+        if user.is_authenticated:
+            favourite = Favourite.objects.filter(
+                owner=user, post=obj
+            ).first()
+            return favourite.id if favourite else None
+        return None
+
     class Meta:
         model = Post
         fields = [
@@ -75,6 +90,7 @@ class PostSerializer(serializers.ModelSerializer):
             'category',
             'category_name',
             'like_id',
+            'favourite_id',
             'comments_count',
             'likes_count',
         ]
