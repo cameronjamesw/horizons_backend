@@ -216,7 +216,9 @@ All files containing custom Python code were validated using the [Code Institute
 
 #### Bugs Found While Testing In React
 
-- TBD
+- When working with the CurrentUserSerializer within React, I was struggling to find a way of determining whether the current user was an admin or not. I attempted to create a seperate context file which would fetch the relevent information to determine the admin status of the user; however, I realised there was a much simpler way of doing this.
+
+I decided to create a method feild withni the CurrentUserSerializer folder - this method was to fetch the required data of the admin status, and then post it to the front-end within the CurrentUserContext file. This saved me an awful lot of time, and it helped improve the efficiency of my code.
 
 ### Unresolved Bugs
 
