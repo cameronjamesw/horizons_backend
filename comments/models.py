@@ -12,7 +12,7 @@ class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    content = models.TextField()
+    content = models.TextField(blank=False)
 
     class Mta:
         ordering = ['-created_at']
