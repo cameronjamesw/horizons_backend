@@ -218,7 +218,9 @@ All files containing custom Python code were validated using the [Code Institute
 
 - When working with the CurrentUserSerializer within React, I was struggling to find a way of determining whether the current user was an admin or not. I attempted to create a seperate context file which would fetch the relevent information to determine the admin status of the user; however, I realised there was a much simpler way of doing this.
 
-I decided to create a method feild withni the CurrentUserSerializer folder - this method was to fetch the required data of the admin status, and then post it to the front-end within the CurrentUserContext file. This saved me an awful lot of time, and it helped improve the efficiency of my code.
+- I decided to create a method feild withni the CurrentUserSerializer folder - this method was to fetch the required data of the admin status, and then post it to the front-end within the CurrentUserContext file. This saved me an awful lot of time, and it helped improve the efficiency of my code.
+
+- The CommetSerializer had not had the ID passed as a field. This was causing a bug on the frontend - when the user attempted to delete a comment the request was returning a 404 error as the ID parameter was undefined. Upon adding the ID field into the comment serializer this was soon fixed.
 
 ### Unresolved Bugs
 
