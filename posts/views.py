@@ -40,7 +40,7 @@ class PostList(generics.ListCreateAPIView):
         'owner__profile',
 
         # Posts by Category
-        'category',
+        'category__id',
 
         # User Favourite Posts
         'favourites__owner__profile',
