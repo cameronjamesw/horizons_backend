@@ -40,7 +40,7 @@ class PostList(generics.ListCreateAPIView):
         'owner__profile',
 
         # Posts by Category
-        'category__id',
+        'category',
 
         # User Favourite Posts
         'favourites__owner__profile',
@@ -54,7 +54,7 @@ class PostList(generics.ListCreateAPIView):
 
     search_fields = [
         'owner__username',  # Search by username of the owner
-        'title',  # Search by name of the tit;e
+        'title',  # Search by name of the title
         'category__name',  # Search by category
     ]
 
