@@ -193,6 +193,7 @@ All files containing custom Python code were validated using the [Code Institute
 
 - `horizons_backend/permissions.py`: no errors found
 - `horizons_backend/settings.py`: no errors found
+  + On lines 74 and 175 the character length is too long. This is becasue in both instances there characters are part of a URL and I don't want to risk breaking them.
 - `horizons_backend/serializers.py`: no errors found
 - `horizons_backend/urls.py`: no errors found
 - `horizons_backend/views.py`: no errors found
